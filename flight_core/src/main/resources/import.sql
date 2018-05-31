@@ -1,0 +1,2 @@
+INSERT INTO Personne(id, nom, prenom, email, telephone, login, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'brahms', 'Client')
+INSERT INTO Personne(id, nom, prenom, email, telephone, login, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Pierrot', 'Client')

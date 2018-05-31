@@ -1,12 +1,20 @@
 package com.m2i.service.impl;
 
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.m2i.dao.IClientDao;
 import com.m2i.entity.Client;
 import com.m2i.entity.Login;
 import com.m2i.service.IServiceClient;
 
+@Service
+@Transactional
 public class ServiceClientImpl implements IServiceClient {
 	
+	@Autowired
 	IClientDao dao;
 
 	@Override
@@ -22,8 +30,7 @@ public class ServiceClientImpl implements IServiceClient {
 
 	@Override
 	public Client authentifierClient(String username, String password) {
-		return null;
-
+		return dao.findAuthClient(username, password);
 	}
 
 	@Override

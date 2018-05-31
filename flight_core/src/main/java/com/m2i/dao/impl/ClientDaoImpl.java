@@ -20,10 +20,7 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public Client findClientByNumero(Integer id) {
-		return entityManager.createNamedQuery(
-				"Client.findByNumWithComptes" , Client.class)
-				.setParameter("id", id)
-	            .getSingleResult();
+		return entityManager.find(Client.class, id);
 	}
 
 	@Override
@@ -45,6 +42,14 @@ public class ClientDaoImpl implements IClientDao {
 	public void deleteClient(Integer id) {
 		Client client = entityManager.find(Client.class, id);
 		entityManager.remove(client);
+	}
+
+	@Override
+	public Client findAuthClient(String username, String password) {
+		return entityManager.createNamedQuery("Client.findAuthClient" , Client.class)
+				.setParameter("username", username)
+				.setParameter("password", password)
+	            .getSingleResult();
 	}
 
 }

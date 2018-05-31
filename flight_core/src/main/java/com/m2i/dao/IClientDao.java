@@ -30,4 +30,6 @@ public interface IClientDao {
      * @param id
      */
     public void deleteClient(Integer id);
+    
+    public Client findAuthClient(String username, String password);
 }
