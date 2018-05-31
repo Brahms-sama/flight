@@ -4,34 +4,28 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-
+import javax.persistence.OneToOne;
 
 @Entity
 @DiscriminatorValue("Client")
-@NamedQueries({
-@NamedQuery(name="Client.findClientById",
- query="SELECT cli FROM Client cli WHERE id = :id") ,
-@NamedQuery(name="Client.findAuthClient",
- query="SELECT cli FROM Client cli WHERE username =:username AND password =:password")
-})
+@NamedQueries({ @NamedQuery(name = "Client.findClientById", query = "SELECT cli FROM Client cli WHERE cli.id = :id"),
+		@NamedQuery(name = "Client.findAuthClient", query = "SELECT cli FROM Client cli WHERE cli.id =:username AND cli.id =:password") })
 public class Client extends Personne {
 	
-//	private Login login;
-	private String login;
-	
+	@OneToOne(mappedBy="client")
+	private Login login;
+
 	public Client() {
 		// TODO Auto-generated constructor stub
 	}
 
-//	public Login getLogin() {
-//		return login;
-//	}
-//
-//	public void setLogin(Login login) {
-//		this.login = login;
-//	}
-	
-	
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
 
 	@Override
 	public String toString() {
@@ -39,15 +33,5 @@ public class Client extends Personne {
 				+ ", getPrenom()=" + getPrenom() + ", getEmail()=" + getEmail() + ", getTelephone()=" + getTelephone()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	
-	
 
 }

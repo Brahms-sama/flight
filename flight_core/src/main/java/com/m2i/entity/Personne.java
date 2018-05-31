@@ -9,29 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="typePersonne",discriminatorType=DiscriminatorType.STRING )
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "typePersonne", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Personne")
 public class Personne {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
 	private String prenom;
 	private String email;
 	private String telephone;
-	
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private Adresse adresse;
+
 	public Personne() {
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public String toString() {
-		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", telephone="
-				+ telephone + "]";
 	}
 
 	public Integer getId() {
@@ -73,5 +73,19 @@ public class Personne {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", telephone="
+				+ telephone + "]";
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
 }

@@ -25,9 +25,35 @@ public class TestServiceClient {
 	@Test
 	public void testClients() {
 		Client client = service.rechercherClientParId(1);
-		logger.info("\t->" + client);
 		Assert.assertEquals("Ibrahim",client.getPrenom());
+		logger.info("\t->" + client);
 		
+	}
+	
+	@Test
+	public void testModifierClient() {
+		Client client = service.rechercherClientParId(1);
+		client.setTelephone("0143302504");
+		service.modifierCoordClient(client);
+		logger.info("\tClient :" + client);
+		Client newClient = service.rechercherClientParId(1);
+		Assert.assertEquals(newClient.getTelephone(),client.getTelephone());
+		logger.info("\tNouveau Client :" + client);
+		
+	}
+
+	@Test
+	public void testAdresse() {
+		Client client = service.rechercherClientParId(1);
+		logger.info(client.getAdresse().toString());
+		Assert.assertEquals("Picasso", client.getAdresse().getNom());
+	}
+	
+	@Test
+	public void testLogin() {
+		Client client = service.rechercherClientParId(1);
+		logger.info(client.getLogin().toString());
+		Assert.assertEquals("Picasso", client.getAdresse().getNom());
 	}
 	
 	

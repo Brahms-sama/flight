@@ -1,13 +1,24 @@
 package com.m2i.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
 public class Adresse {
 	
+	@Id
 	private Integer id;
 	private Integer numero;
 	private String nom;
 	private String codePostal;
 	private String ville;
 	private String pays;
+	
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private Personne personne;
 	
 	public Adresse() {
 		// TODO Auto-generated constructor stub
@@ -59,6 +70,14 @@ public class Adresse {
 
 	public void setPays(String pays) {
 		this.pays = pays;
+	}
+
+	public Personne getPersonne() {
+		return personne;
+	}
+
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
 	}
 
 	@Override

@@ -114,3 +114,10 @@ Caused by: org.hibernate.MappingException: Could not determine type for: com.m2i
 2018-05-31 14:28:57,173 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Unknown column 'client0_.typePersonne' in 'where clause'
 2018-05-31 14:32:47,256 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Unknown column 'client0_.typePersonne' in 'where clause'
 2018-05-31 14:37:11,830 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Table 'flight_db.personne' doesn't exist
+2018-05-31 15:24:33,664 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Table 'flight_db.personne' doesn't exist
+2018-05-31 15:25:29,242 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Table 'flight_db.personne' doesn't exist
+2018-05-31 15:29:31,174 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Table 'flight_db.personne' doesn't exist
+2018-05-31 15:31:51,860 INFO main com.m2i.test.TestServiceClient - 	->Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0627233333], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0627233333, getClass()=class com.m2i.entity.Client, hashCode()=676338251]
+2018-05-31 16:18:14,687 INFO main com.m2i.test.TestServiceClient - 	->null
+2018-05-31 16:25:14,173 INFO main com.m2i.test.TestServiceClient - 	->Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0627233333], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0627233333, getClass()=class com.m2i.entity.Client, hashCode()=1905114489]
+2018-05-31 16:30:05,563 INFO main com.m2i.test.TestServiceClient - Adresse [id=1, numero=5, nom=Picasso, codePostal=93370, ville=Montfermeil, pays=France]
