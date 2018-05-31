@@ -33,9 +33,9 @@ public class TestServiceClient {
 	@Test
 	public void testModifierClient() {
 		Client client = service.rechercherClientParId(1);
+		logger.info("\tClient :" + client);
 		client.setTelephone("0143302504");
 		service.modifierCoordClient(client);
-		logger.info("\tClient :" + client);
 		Client newClient = service.rechercherClientParId(1);
 		Assert.assertEquals(newClient.getTelephone(),client.getTelephone());
 		logger.info("\tNouveau Client :" + client);

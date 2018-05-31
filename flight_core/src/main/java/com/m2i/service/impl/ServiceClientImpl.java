@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.m2i.dao.IClientDao;
+import com.m2i.dao.ILoginDao;
 import com.m2i.entity.Client;
 import com.m2i.entity.Login;
 import com.m2i.service.IServiceClient;
@@ -15,32 +16,35 @@ import com.m2i.service.IServiceClient;
 public class ServiceClientImpl implements IServiceClient {
 	
 	@Autowired
-	IClientDao dao;
-
+	IClientDao daoClient;
+	
+	@Autowired 
+	ILoginDao daoLogin;
+	
 	@Override
 	public Client rechercherClientParId(Integer id) {
-		return dao.findClientByNumero(id);
+		return daoClient.findClientByNumero(id);
 	}
 
 	@Override
 	public void enregistrerNouveauClient(Client client, Login login) {
-		dao.insertClient(client);
-
+		daoClient.insertClient(client);
+		daoLogin.insertLogin(login);
 	}
 
 	@Override
 	public Client authentifierClient(String username, String password) {
-		return dao.findAuthClient(username, password);
+		return daoClient.findAuthClient(username, password);
 	}
 
 	@Override
 	public void modifierCoordClient(Client client) {
-		dao.updateClient(client);
+		daoClient.updateClient(client);
 	}
 
 	@Override
 	public void supprimerInfosClient(Client client) {
-		dao.deleteClient(client.getId());
+		daoClient.deleteClient(client.getId());
 	}
 
 }

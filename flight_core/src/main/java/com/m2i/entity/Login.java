@@ -12,6 +12,7 @@ public class Login {
 	@PrimaryKeyJoinColumn
 	private Client client;
 	@Id
+	private Integer id;
 	private String username;
 	private String password;
 
