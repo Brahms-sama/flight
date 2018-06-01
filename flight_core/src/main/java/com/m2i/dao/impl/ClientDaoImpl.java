@@ -20,7 +20,10 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public Client findClientByNumero(Integer id) {
-		return entityManager.find(Client.class, id);
+//		return entityManager.find(Client.class, id);
+		return entityManager.createNamedQuery("Client.findClientById", Client.class)
+			.setParameter("id", id)
+			.getSingleResult();
 	}
 
 	@Override

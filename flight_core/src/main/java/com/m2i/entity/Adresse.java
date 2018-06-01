@@ -1,14 +1,16 @@
 package com.m2i.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Adresse {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private Integer numero;
 	private String nom;
@@ -16,8 +18,7 @@ public class Adresse {
 	private String ville;
 	private String pays;
 	
-	@OneToOne
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy="adresse")
 	private Personne personne;
 	
 	public Adresse() {

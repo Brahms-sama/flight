@@ -1,4 +1,4 @@
-package com.m2i.service.impl;
+package com.m2i.dao.impl;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;

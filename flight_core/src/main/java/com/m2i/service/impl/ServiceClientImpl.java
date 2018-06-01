@@ -1,5 +1,7 @@
 package com.m2i.service.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +16,10 @@ import com.m2i.service.IServiceClient;
 @Service
 @Transactional
 public class ServiceClientImpl implements IServiceClient {
-	
+
 	@Autowired
 	IClientDao daoClient;
-	
-	@Autowired 
-	ILoginDao daoLogin;
-	
+
 	@Override
 	public Client rechercherClientParId(Integer id) {
 		return daoClient.findClientByNumero(id);
@@ -29,7 +28,8 @@ public class ServiceClientImpl implements IServiceClient {
 	@Override
 	public void enregistrerNouveauClient(Client client, Login login) {
 		daoClient.insertClient(client);
-		daoLogin.insertLogin(login);
+		login.setClient(client);
+		client.setLogin(login);
 	}
 
 	@Override
@@ -45,6 +45,11 @@ public class ServiceClientImpl implements IServiceClient {
 	@Override
 	public void supprimerInfosClient(Client client) {
 		daoClient.deleteClient(client.getId());
+	}
+
+	@Override
+	public List<Client> listeClients() {
+		return daoClient.findAllClient();
 	}
 
 }

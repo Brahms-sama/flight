@@ -11,10 +11,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Vol")
+@NamedQueries({
+  @NamedQuery(name="Vol.findVolsByDeparture", 
+		  query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :ptown"),
+  @NamedQuery(name="Vol.findVolsByDateDepart", 
+          query="SELECT v FROM Vol v WHERE STR_TO_DATE(v.depart.dateTime, '%Y-%m-%d')  = :pdate")
+})
 public class Vol {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,23 +32,19 @@ public class Vol {
 	
 	@Embedded
 	@AssociationOverrides({
-	 @AssociationOverride(name="localite",
-	     joinColumns={@JoinColumn(name="refLocDepart")})
+	 @AssociationOverride(name="localite",joinColumns={@JoinColumn(name="refLocDepart")})
 	})
 	@AttributeOverrides({
-	  @AttributeOverride(name="date",	
-			         column=@Column(name="dateDepart"))
+	  @AttributeOverride(name="dateTime",column=@Column(name="dateTimeDepart")),
 	})
 	private Phase depart;
 	
 	@Embedded
 	@AssociationOverrides({
-	 @AssociationOverride(name="localite",
-			              joinColumns={@JoinColumn(name="refLocArrivee")})
+	 @AssociationOverride(name="localite",joinColumns={@JoinColumn(name="refLocArrivee")})
 	})
 	@AttributeOverrides({
-	  @AttributeOverride(name="date",	
-			             column=@Column(name="dateArrivee"))
+	  @AttributeOverride(name="dateTime",column=@Column(name="dateTimeArrivee")),
 	})
 	private Phase arrivee;
 	

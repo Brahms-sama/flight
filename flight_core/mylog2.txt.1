@@ -1,0 +1,528 @@
+2018-06-01 09:35:34,409 DEBUG main org.hibernate.SQL - delete from Personne where id=?
+2018-06-01 09:35:34,431 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_ from Personne client0_ where client0_.typePersonne='Client'
+2018-06-01 09:35:34,431 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.id left outer join Login login2_ on personne1_.id=login2_.id where adresse0_.id=?
+2018-06-01 09:35:34,431 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.id left outer join Login login2_ on personne1_.id=login2_.id where adresse0_.id=?
+2018-06-01 09:35:49,227 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 09:35:49,246 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 09:35:49,246 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 09:35:49,262 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 09:35:49,277 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 09:35:49,293 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 09:35:49,309 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 09:35:49,340 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 09:35:49,371 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 09:35:49,402 DEBUG main org.hibernate.SQL - create table Login (id integer not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 09:35:49,418 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 09:35:49,449 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 09:35:49,481 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 09:35:49,638 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 09:35:49,715 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 09:35:49,715 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 09:35:49,715 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 09:35:49,715 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 09:35:49,715 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 09:35:49,715 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 09:35:49,731 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 09:35:49,731 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 09:35:49,731 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 09:35:50,097 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 09:35:50,128 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.id left outer join Login login2_ on personne1_.id=login2_.id where adresse0_.id=?
+2018-06-01 09:35:50,143 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_0_, client0_.email as email3_3_0_, client0_.nom as nom4_3_0_, client0_.prenom as prenom5_3_0_, client0_.telephone as telephon6_3_0_, adresse1_.id as id1_0_1_, adresse1_.codePostal as codePost2_0_1_, adresse1_.nom as nom3_0_1_, adresse1_.numero as numero4_0_1_, adresse1_.pays as pays5_0_1_, adresse1_.ville as ville6_0_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Personne client0_ left outer join Adresse adresse1_ on client0_.id=adresse1_.id left outer join Login login2_ on client0_.id=login2_.id where client0_.id=? and client0_.typePersonne='Client'
+2018-06-01 09:35:50,159 DEBUG main org.hibernate.SQL - delete from Personne where id=?
+2018-06-01 09:35:50,175 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_ from Personne client0_ where client0_.typePersonne='Client'
+2018-06-01 09:35:50,175 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.id left outer join Login login2_ on personne1_.id=login2_.id where adresse0_.id=?
+2018-06-01 09:35:50,175 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.id left outer join Login login2_ on personne1_.id=login2_.id where adresse0_.id=?
+2018-06-01 09:53:13,473 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 09:53:13,495 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 09:53:13,503 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 09:53:13,519 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 09:53:13,533 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 09:53:13,545 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 09:53:13,558 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 09:53:13,575 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 09:53:13,608 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 09:53:13,642 DEBUG main org.hibernate.SQL - create table Login (id integer not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 09:53:13,670 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 09:53:13,702 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 09:53:13,733 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 09:53:13,820 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 09:53:13,900 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 09:53:13,904 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 09:53:13,907 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 09:53:13,913 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 09:53:13,920 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 09:53:13,925 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 09:53:13,931 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 09:53:13,936 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 09:53:13,940 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 09:53:14,280 DEBUG main org.hibernate.SQL - insert into Personne (email, nom, prenom, telephone, typePersonne) values (?, ?, ?, ?, 'Client')
+2018-06-01 10:07:53,391 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 10:07:53,414 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 10:07:53,424 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 10:07:53,445 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 10:07:53,465 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 10:07:53,487 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 10:07:53,507 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 10:07:53,531 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:07:53,569 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:07:53,609 DEBUG main org.hibernate.SQL - create table Login (id integer not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:07:53,656 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:07:53,703 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 10:07:53,730 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 10:07:53,816 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 10:07:53,934 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 10:07:53,941 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 10:07:53,946 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 10:07:53,953 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 10:07:53,961 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 10:07:53,967 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 10:07:53,981 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 10:07:53,997 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 10:07:54,002 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 10:07:54,350 DEBUG main org.hibernate.SQL - insert into Personne (email, nom, prenom, telephone, typePersonne) values (?, ?, ?, ?, 'Client')
+2018-06-01 10:10:15,696 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 10:10:15,718 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 10:10:15,726 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 10:10:15,742 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 10:10:15,754 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 10:10:15,767 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 10:10:15,782 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 10:10:15,799 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:10:15,825 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:10:15,846 DEBUG main org.hibernate.SQL - create table Login (id integer not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:10:15,869 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:10:15,898 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 10:10:15,920 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 10:10:15,985 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 10:10:16,085 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 10:10:16,091 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 10:10:16,096 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 10:10:16,103 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 10:10:16,111 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 10:10:16,116 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 10:10:16,123 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 10:10:16,131 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 10:10:16,137 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 10:10:16,516 DEBUG main org.hibernate.SQL - insert into Personne (email, nom, prenom, telephone, typePersonne) values (?, ?, ?, ?, 'Client')
+2018-06-01 10:12:38,010 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 10:12:38,032 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 10:12:38,041 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 10:12:38,061 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 10:12:38,081 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 10:12:38,101 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 10:12:38,120 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 10:12:38,137 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:12:38,164 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:12:38,185 DEBUG main org.hibernate.SQL - create table Login (id integer not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:12:38,220 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:12:38,250 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 10:12:38,277 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 10:12:38,368 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 10:12:38,430 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 10:12:38,435 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 10:12:38,441 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 10:12:38,448 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 10:12:38,455 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 10:12:38,460 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 10:12:38,467 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 10:12:38,474 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 10:12:38,480 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 10:12:38,830 DEBUG main org.hibernate.SQL - insert into Personne (email, nom, prenom, telephone, typePersonne) values (?, ?, ?, ?, 'Client')
+2018-06-01 10:18:49,824 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 10:18:49,888 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 10:18:49,897 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 10:18:49,918 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 10:18:49,935 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 10:18:49,954 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 10:18:49,971 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 10:18:49,992 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:18:50,035 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:18:50,084 DEBUG main org.hibernate.SQL - create table Login (id integer not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:18:50,121 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:18:50,171 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 10:18:50,211 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 10:18:50,323 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 10:18:50,397 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 10:18:50,400 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 10:18:50,402 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 10:18:50,406 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 10:18:50,409 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 10:18:50,411 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 10:18:50,416 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 10:18:50,419 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 10:18:50,422 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 10:18:50,782 DEBUG main org.hibernate.SQL - insert into Personne (email, nom, prenom, telephone, typePersonne) values (?, ?, ?, ?, 'Client')
+2018-06-01 10:27:16,428 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK5rytjhlr4eaj4tdbnsqp88064
+2018-06-01 10:27:16,444 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 10:27:16,453 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 10:27:16,460 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 10:27:16,475 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 10:27:16,489 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 10:27:16,504 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 10:27:16,518 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 10:27:16,534 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:27:16,564 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:27:16,586 DEBUG main org.hibernate.SQL - create table Login (id integer not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:27:16,609 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse_id integer, primary key (id)) engine=InnoDB
+2018-06-01 10:27:16,646 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 10:27:16,668 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK5rytjhlr4eaj4tdbnsqp88064 foreign key (adresse_id) references Adresse (id)
+2018-06-01 10:27:16,818 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 10:27:16,906 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 10:27:16,986 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 10:27:16,989 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 10:27:16,992 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 10:27:17,001 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 10:27:17,006 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 10:27:17,010 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 10:27:17,015 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 10:27:17,022 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 10:27:17,027 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 10:57:44,434 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 10:57:44,450 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 10:57:44,456 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 10:57:44,469 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 10:57:44,480 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 10:57:44,491 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 10:57:44,516 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 10:57:44,537 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 10:57:44,557 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 10:57:44,579 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:57:44,588 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:57:44,622 DEBUG main org.hibernate.SQL - create table Login (id integer not null, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:57:44,668 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 10:57:44,703 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 10:57:44,761 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 10:57:44,884 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 10:57:44,957 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 10:57:45,030 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 10:57:45,119 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 10:57:45,124 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 10:57:45,128 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 10:57:45,138 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 10:57:45,146 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 10:57:45,147 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 10:57:45,147 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 10:57:45,152 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 10:57:45,156 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 10:57:45,501 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:57:45,548 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_0_, client0_.adresse as adresse7_3_0_, client0_.email as email3_3_0_, client0_.nom as nom4_3_0_, client0_.prenom as prenom5_3_0_, client0_.telephone as telephon6_3_0_, client0_.login as login8_3_0_ from Personne client0_ where client0_.id=? and client0_.typePersonne='Client'
+2018-06-01 10:57:45,558 DEBUG main org.hibernate.SQL - update Personne set adresse=?, email=?, nom=?, prenom=?, telephone=?, login=? where id=?
+2018-06-01 10:57:45,567 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:57:45,578 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:57:45,603 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:57:45,610 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:57:45,617 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_0_, client0_.adresse as adresse7_3_0_, client0_.email as email3_3_0_, client0_.nom as nom4_3_0_, client0_.prenom as prenom5_3_0_, client0_.telephone as telephon6_3_0_, client0_.login as login8_3_0_, adresse1_.id as id1_0_1_, adresse1_.codePostal as codePost2_0_1_, adresse1_.nom as nom3_0_1_, adresse1_.numero as numero4_0_1_, adresse1_.pays as pays5_0_1_, adresse1_.ville as ville6_0_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Personne client0_ left outer join Adresse adresse1_ on client0_.adresse=adresse1_.id left outer join Login login2_ on client0_.login=login2_.id where client0_.id=? and client0_.typePersonne='Client'
+2018-06-01 10:57:45,628 DEBUG main org.hibernate.SQL - delete from Personne where id=?
+2018-06-01 10:57:45,638 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client'
+2018-06-01 10:57:45,644 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:59:09,567 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 10:59:09,587 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 10:59:09,594 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 10:59:09,601 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 10:59:09,609 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 10:59:09,626 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 10:59:09,641 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 10:59:09,655 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 10:59:09,669 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 10:59:09,688 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:59:09,722 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:59:09,744 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:59:09,767 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 10:59:09,793 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 10:59:09,816 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 10:59:09,888 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 10:59:09,993 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 10:59:10,139 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 10:59:10,243 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 10:59:10,247 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 10:59:10,252 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 10:59:10,261 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 10:59:10,269 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 10:59:10,274 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 10:59:10,280 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 10:59:10,288 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 10:59:10,294 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 10:59:10,669 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:59:10,714 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_0_, client0_.adresse as adresse7_3_0_, client0_.email as email3_3_0_, client0_.nom as nom4_3_0_, client0_.prenom as prenom5_3_0_, client0_.telephone as telephon6_3_0_, client0_.login as login8_3_0_ from Personne client0_ where client0_.id=? and client0_.typePersonne='Client'
+2018-06-01 10:59:10,724 DEBUG main org.hibernate.SQL - update Personne set adresse=?, email=?, nom=?, prenom=?, telephone=?, login=? where id=?
+2018-06-01 10:59:10,737 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:59:10,745 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:59:10,760 DEBUG main org.hibernate.SQL - insert into Adresse (codePostal, nom, numero, pays, ville) values (?, ?, ?, ?, ?)
+2018-06-01 10:59:10,763 DEBUG main org.hibernate.SQL - insert into Personne (adresse, email, nom, prenom, telephone, login, typePersonne) values (?, ?, ?, ?, ?, ?, 'Client')
+2018-06-01 10:59:10,774 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:59:10,782 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:59:10,789 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_0_, client0_.adresse as adresse7_3_0_, client0_.email as email3_3_0_, client0_.nom as nom4_3_0_, client0_.prenom as prenom5_3_0_, client0_.telephone as telephon6_3_0_, client0_.login as login8_3_0_, adresse1_.id as id1_0_1_, adresse1_.codePostal as codePost2_0_1_, adresse1_.nom as nom3_0_1_, adresse1_.numero as numero4_0_1_, adresse1_.pays as pays5_0_1_, adresse1_.ville as ville6_0_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Personne client0_ left outer join Adresse adresse1_ on client0_.adresse=adresse1_.id left outer join Login login2_ on client0_.login=login2_.id where client0_.id=? and client0_.typePersonne='Client'
+2018-06-01 10:59:10,800 DEBUG main org.hibernate.SQL - delete from Personne where id=?
+2018-06-01 10:59:10,812 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client'
+2018-06-01 10:59:10,818 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 10:59:27,312 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 10:59:27,333 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 10:59:27,341 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 10:59:27,349 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 10:59:27,357 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 10:59:27,370 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 10:59:27,383 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 10:59:27,396 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 10:59:27,413 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 10:59:27,434 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:59:27,465 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:59:27,514 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 10:59:27,574 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 10:59:27,597 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 10:59:27,619 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 10:59:27,683 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 10:59:27,738 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 10:59:27,831 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 10:59:27,912 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client')
+2018-06-01 10:59:27,916 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client')
+2018-06-01 10:59:27,921 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client')
+2018-06-01 10:59:27,932 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 10:59:27,937 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 10:59:27,941 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 10:59:27,947 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 10:59:27,955 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 10:59:27,959 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 10:59:28,336 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:04:29,861 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 11:04:29,879 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 11:04:29,887 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 11:04:29,895 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 11:04:29,902 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 11:04:29,917 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 11:04:29,932 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 11:04:29,946 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 11:04:29,962 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 11:04:29,979 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:04:30,002 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:04:30,049 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:04:30,078 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 11:04:30,106 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 11:04:30,135 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 11:04:30,206 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 11:04:30,302 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 11:04:30,405 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 11:04:30,554 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client', 1, 1)
+2018-06-01 11:04:30,558 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client', 2, 2)
+2018-06-01 11:04:30,562 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client', 3, 3)
+2018-06-01 11:04:30,564 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 11:04:30,567 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 11:04:30,568 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 11:04:30,572 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 11:04:30,575 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 11:04:30,577 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 11:04:30,919 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:05:01,044 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 11:05:01,073 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 11:05:01,083 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 11:05:01,092 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 11:05:01,103 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 11:05:01,118 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 11:05:01,130 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 11:05:01,143 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 11:05:01,155 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 11:05:01,171 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:05:01,197 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:05:01,220 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:05:01,249 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 11:05:01,272 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 11:05:01,296 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 11:05:01,369 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 11:05:01,448 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 11:05:01,559 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 11:05:01,650 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client', 1, 1)
+2018-06-01 11:05:01,655 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client', 2, 2)
+2018-06-01 11:05:01,659 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client', 3, 3)
+2018-06-01 11:05:01,663 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 11:05:01,668 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 11:05:01,673 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 11:05:01,679 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 11:05:01,686 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 11:05:01,690 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 11:05:02,048 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_0_, client0_.adresse as adresse7_3_0_, client0_.email as email3_3_0_, client0_.nom as nom4_3_0_, client0_.prenom as prenom5_3_0_, client0_.telephone as telephon6_3_0_, client0_.login as login8_3_0_, adresse1_.id as id1_0_1_, adresse1_.codePostal as codePost2_0_1_, adresse1_.nom as nom3_0_1_, adresse1_.numero as numero4_0_1_, adresse1_.pays as pays5_0_1_, adresse1_.ville as ville6_0_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Personne client0_ left outer join Adresse adresse1_ on client0_.adresse=adresse1_.id left outer join Login login2_ on client0_.login=login2_.id where client0_.id=? and client0_.typePersonne='Client'
+2018-06-01 11:05:30,077 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 11:05:30,097 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 11:05:30,105 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 11:05:30,113 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 11:05:30,122 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 11:05:30,137 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 11:05:30,150 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 11:05:30,163 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 11:05:30,178 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 11:05:30,194 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:05:30,220 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:05:30,239 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:05:30,264 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 11:05:30,288 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 11:05:30,307 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 11:05:30,381 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 11:05:30,460 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 11:05:30,612 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 11:05:30,744 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client', 1, 1)
+2018-06-01 11:05:30,749 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client', 2, 2)
+2018-06-01 11:05:30,757 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client', 3, 3)
+2018-06-01 11:05:30,765 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 11:05:30,774 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 11:05:30,780 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 11:05:30,786 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 11:05:30,791 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 11:05:30,796 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 11:05:31,162 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:10:18,249 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 11:10:18,274 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 11:10:18,284 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 11:10:18,295 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 11:10:18,304 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 11:10:18,326 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 11:10:18,346 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 11:10:18,365 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 11:10:18,386 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 11:10:18,409 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:10:18,448 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:10:18,482 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:10:18,513 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 11:10:18,538 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 11:10:18,569 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 11:10:18,654 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 11:10:18,706 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 11:10:18,778 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 11:10:18,846 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client', 1, 1)
+2018-06-01 11:10:18,852 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client', 2, 2)
+2018-06-01 11:10:18,855 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client', 3, 3)
+2018-06-01 11:10:18,865 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 11:10:18,875 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 11:10:18,888 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 11:10:18,894 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 11:10:18,923 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 11:10:18,933 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 11:10:19,418 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:16:30,660 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 11:16:30,685 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 11:16:30,694 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 11:16:30,704 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 11:16:30,714 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 11:16:30,738 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 11:16:30,760 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 11:16:30,780 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 11:16:30,801 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 11:16:30,825 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:16:30,905 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:16:30,945 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:16:30,967 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 11:16:30,990 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 11:16:31,012 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 11:16:31,081 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 11:16:31,142 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 11:16:31,229 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 11:16:31,308 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client', 1, 1)
+2018-06-01 11:16:31,314 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client', 2, 2)
+2018-06-01 11:16:31,319 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client', 3, 3)
+2018-06-01 11:16:31,324 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 11:16:31,331 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 11:16:31,335 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 11:16:31,342 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 11:16:31,350 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 11:16:31,355 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 11:16:31,725 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:18:40,780 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 11:18:40,805 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 11:18:40,815 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 11:18:40,824 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 11:18:40,834 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 11:18:40,857 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 11:18:40,877 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 11:18:40,898 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 11:18:40,919 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 11:18:40,937 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:18:40,979 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:18:41,011 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:18:41,056 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 11:18:41,080 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 11:18:41,101 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 11:18:41,170 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 11:18:41,250 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 11:18:41,339 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 11:18:41,414 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client', 1, 1)
+2018-06-01 11:18:41,418 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client', 2, 2)
+2018-06-01 11:18:41,423 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client', 3, 3)
+2018-06-01 11:18:41,426 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 11:18:41,430 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 11:18:41,434 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 11:18:41,439 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 11:18:41,444 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 11:18:41,448 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 11:18:41,787 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:22:49,467 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 11:22:49,491 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 11:22:49,499 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 11:22:49,507 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 11:22:49,515 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 11:22:49,530 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 11:22:49,543 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 11:22:49,561 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 11:22:49,574 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 11:22:49,593 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:22:49,620 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:22:49,639 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:22:49,662 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 11:22:49,685 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 11:22:49,707 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 11:22:49,773 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 11:22:49,857 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 11:22:49,998 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 11:22:50,106 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 11:22:50,109 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 11:22:50,112 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 11:22:50,115 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 11:22:50,118 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 11:22:50,121 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 11:22:50,124 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client', 1, 1)
+2018-06-01 11:22:50,127 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client', 2, 2)
+2018-06-01 11:22:50,129 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client', 3, 3)
+2018-06-01 11:22:50,518 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:22:50,544 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.adresse as adresse7_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.login as login8_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.adresse left outer join Login login2_ on personne1_.login=login2_.id where adresse0_.id=?
+2018-06-01 11:22:50,548 DEBUG main org.hibernate.SQL - select personne0_.id as id2_3_2_, personne0_.adresse as adresse7_3_2_, personne0_.email as email3_3_2_, personne0_.nom as nom4_3_2_, personne0_.prenom as prenom5_3_2_, personne0_.telephone as telephon6_3_2_, personne0_.login as login8_3_2_, personne0_.typePersonne as typePers1_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne personne0_ left outer join Adresse adresse1_ on personne0_.adresse=adresse1_.id left outer join Login login2_ on personne0_.login=login2_.id where personne0_.adresse=?
+2018-06-01 11:22:50,551 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_2_, client0_.adresse as adresse7_3_2_, client0_.email as email3_3_2_, client0_.nom as nom4_3_2_, client0_.prenom as prenom5_3_2_, client0_.telephone as telephon6_3_2_, client0_.login as login8_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne client0_ left outer join Adresse adresse1_ on client0_.adresse=adresse1_.id left outer join Login login2_ on client0_.login=login2_.id where client0_.login=? and client0_.typePersonne='Client'
+2018-06-01 11:23:13,684 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FKithahf2c0aeiyk04wb97063ju
+2018-06-01 11:23:13,705 DEBUG main org.hibernate.SQL - alter table Personne drop foreign key FK1xtl1n30vw4k0yr61hy9ecgn9
+2018-06-01 11:23:13,712 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FKfyats76ha60524dxdbsx441kg
+2018-06-01 11:23:13,720 DEBUG main org.hibernate.SQL - alter table Vol drop foreign key FK8ycbrr9dx90p0qrnn3q60kqp
+2018-06-01 11:23:13,727 DEBUG main org.hibernate.SQL - drop table if exists Adresse
+2018-06-01 11:23:13,741 DEBUG main org.hibernate.SQL - drop table if exists Localite
+2018-06-01 11:23:13,753 DEBUG main org.hibernate.SQL - drop table if exists Login
+2018-06-01 11:23:13,766 DEBUG main org.hibernate.SQL - drop table if exists Personne
+2018-06-01 11:23:13,780 DEBUG main org.hibernate.SQL - drop table if exists Vol
+2018-06-01 11:23:13,795 DEBUG main org.hibernate.SQL - create table Adresse (id integer not null auto_increment, codePostal varchar(255), nom varchar(255), numero integer, pays varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:23:13,821 DEBUG main org.hibernate.SQL - create table Localite (id bigint not null auto_increment, aeroport varchar(255), ville varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:23:13,845 DEBUG main org.hibernate.SQL - create table Login (id integer not null auto_increment, password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2018-06-01 11:23:13,862 DEBUG main org.hibernate.SQL - create table Personne (typePersonne varchar(31) not null, id integer not null auto_increment, email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), adresse integer, login integer, primary key (id)) engine=InnoDB
+2018-06-01 11:23:13,885 DEBUG main org.hibernate.SQL - create table Vol (num bigint not null auto_increment, dateArrivee date, dateDepart date, prix double precision, refLocArrivee bigint, refLocDepart bigint, primary key (num)) engine=InnoDB
+2018-06-01 11:23:13,905 DEBUG main org.hibernate.SQL - alter table Personne add constraint FKithahf2c0aeiyk04wb97063ju foreign key (adresse) references Adresse (id)
+2018-06-01 11:23:13,990 DEBUG main org.hibernate.SQL - alter table Personne add constraint FK1xtl1n30vw4k0yr61hy9ecgn9 foreign key (login) references Login (id)
+2018-06-01 11:23:14,105 DEBUG main org.hibernate.SQL - alter table Vol add constraint FKfyats76ha60524dxdbsx441kg foreign key (refLocArrivee) references Localite (id)
+2018-06-01 11:23:14,256 DEBUG main org.hibernate.SQL - alter table Vol add constraint FK8ycbrr9dx90p0qrnn3q60kqp foreign key (refLocDepart) references Localite (id)
+2018-06-01 11:23:14,345 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (1, 5, 'Picasso', '93370', 'Montfermeil', 'France')
+2018-06-01 11:23:14,348 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (2, 21, 'de la Résistance', '75010', 'Paris', 'France')
+2018-06-01 11:23:14,350 DEBUG main org.hibernate.SQL - INSERT INTO Adresse(id, numero, nom, codePostal, ville, pays) VALUES (3, 33, 'Endurance', '88', 'Nairobi', 'Kenya')
+2018-06-01 11:23:14,356 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (1, 'brahms', 'toto')
+2018-06-01 11:23:14,360 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (2, 'bibi', 'titi')
+2018-06-01 11:23:14,364 DEBUG main org.hibernate.SQL - INSERT INTO Login(id, username, password) VALUES (3, 'Selassie', 'tata')
+2018-06-01 11:23:14,368 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (1, 'Gassama', 'Ibrahim', 'igassama@gmail.com', '0627233333', 'Client', 1, 1)
+2018-06-01 11:23:14,373 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (2, 'Boutier', 'Pierre', 'pboutier@gmail.com', '0627255555', 'Client', 2, 2)
+2018-06-01 11:23:14,378 DEBUG main org.hibernate.SQL - INSERT INTO Personne(id, nom, prenom, email, telephone, typePersonne, adresse, login) VALUES (3, 'De Soufle', 'Abou', 'ads@gmail.com', '0627222222', 'Client', 3, 3)
+2018-06-01 11:23:14,749 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:23:14,770 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.adresse as adresse7_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.login as login8_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.adresse left outer join Login login2_ on personne1_.login=login2_.id where adresse0_.id=?
+2018-06-01 11:23:14,775 DEBUG main org.hibernate.SQL - select personne0_.id as id2_3_2_, personne0_.adresse as adresse7_3_2_, personne0_.email as email3_3_2_, personne0_.nom as nom4_3_2_, personne0_.prenom as prenom5_3_2_, personne0_.telephone as telephon6_3_2_, personne0_.login as login8_3_2_, personne0_.typePersonne as typePers1_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne personne0_ left outer join Adresse adresse1_ on personne0_.adresse=adresse1_.id left outer join Login login2_ on personne0_.login=login2_.id where personne0_.adresse=?
+2018-06-01 11:23:14,777 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_2_, client0_.adresse as adresse7_3_2_, client0_.email as email3_3_2_, client0_.nom as nom4_3_2_, client0_.prenom as prenom5_3_2_, client0_.telephone as telephon6_3_2_, client0_.login as login8_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne client0_ left outer join Adresse adresse1_ on client0_.adresse=adresse1_.id left outer join Login login2_ on client0_.login=login2_.id where client0_.login=? and client0_.typePersonne='Client'
+2018-06-01 11:23:14,797 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_0_, client0_.adresse as adresse7_3_0_, client0_.email as email3_3_0_, client0_.nom as nom4_3_0_, client0_.prenom as prenom5_3_0_, client0_.telephone as telephon6_3_0_, client0_.login as login8_3_0_ from Personne client0_ where client0_.id=? and client0_.typePersonne='Client'
+2018-06-01 11:23:14,798 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_ from Adresse adresse0_ where adresse0_.id=?
+2018-06-01 11:23:14,799 DEBUG main org.hibernate.SQL - select personne0_.id as id2_3_2_, personne0_.adresse as adresse7_3_2_, personne0_.email as email3_3_2_, personne0_.nom as nom4_3_2_, personne0_.prenom as prenom5_3_2_, personne0_.telephone as telephon6_3_2_, personne0_.login as login8_3_2_, personne0_.typePersonne as typePers1_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne personne0_ left outer join Adresse adresse1_ on personne0_.adresse=adresse1_.id left outer join Login login2_ on personne0_.login=login2_.id where personne0_.adresse=?
+2018-06-01 11:23:14,800 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_2_, client0_.adresse as adresse7_3_2_, client0_.email as email3_3_2_, client0_.nom as nom4_3_2_, client0_.prenom as prenom5_3_2_, client0_.telephone as telephon6_3_2_, client0_.login as login8_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne client0_ left outer join Adresse adresse1_ on client0_.adresse=adresse1_.id left outer join Login login2_ on client0_.login=login2_.id where client0_.login=? and client0_.typePersonne='Client'
+2018-06-01 11:23:14,808 DEBUG main org.hibernate.SQL - update Personne set adresse=?, email=?, nom=?, prenom=?, telephone=?, login=? where id=?
+2018-06-01 11:23:14,820 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:23:14,821 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.adresse as adresse7_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.login as login8_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.adresse left outer join Login login2_ on personne1_.login=login2_.id where adresse0_.id=?
+2018-06-01 11:23:14,822 DEBUG main org.hibernate.SQL - select personne0_.id as id2_3_2_, personne0_.adresse as adresse7_3_2_, personne0_.email as email3_3_2_, personne0_.nom as nom4_3_2_, personne0_.prenom as prenom5_3_2_, personne0_.telephone as telephon6_3_2_, personne0_.login as login8_3_2_, personne0_.typePersonne as typePers1_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne personne0_ left outer join Adresse adresse1_ on personne0_.adresse=adresse1_.id left outer join Login login2_ on personne0_.login=login2_.id where personne0_.adresse=?
+2018-06-01 11:23:14,823 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_2_, client0_.adresse as adresse7_3_2_, client0_.email as email3_3_2_, client0_.nom as nom4_3_2_, client0_.prenom as prenom5_3_2_, client0_.telephone as telephon6_3_2_, client0_.login as login8_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne client0_ left outer join Adresse adresse1_ on client0_.adresse=adresse1_.id left outer join Login login2_ on client0_.login=login2_.id where client0_.login=? and client0_.typePersonne='Client'
+2018-06-01 11:23:14,830 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_, client0_.adresse as adresse7_3_, client0_.email as email3_3_, client0_.nom as nom4_3_, client0_.prenom as prenom5_3_, client0_.telephone as telephon6_3_, client0_.login as login8_3_ from Personne client0_ where client0_.typePersonne='Client' and client0_.id=?
+2018-06-01 11:23:14,831 DEBUG main org.hibernate.SQL - select adresse0_.id as id1_0_0_, adresse0_.codePostal as codePost2_0_0_, adresse0_.nom as nom3_0_0_, adresse0_.numero as numero4_0_0_, adresse0_.pays as pays5_0_0_, adresse0_.ville as ville6_0_0_, personne1_.id as id2_3_1_, personne1_.adresse as adresse7_3_1_, personne1_.email as email3_3_1_, personne1_.nom as nom4_3_1_, personne1_.prenom as prenom5_3_1_, personne1_.telephone as telephon6_3_1_, personne1_.login as login8_3_1_, personne1_.typePersonne as typePers1_3_1_, login2_.id as id1_2_2_, login2_.password as password2_2_2_, login2_.username as username3_2_2_ from Adresse adresse0_ left outer join Personne personne1_ on adresse0_.id=personne1_.adresse left outer join Login login2_ on personne1_.login=login2_.id where adresse0_.id=?
+2018-06-01 11:23:14,832 DEBUG main org.hibernate.SQL - select personne0_.id as id2_3_2_, personne0_.adresse as adresse7_3_2_, personne0_.email as email3_3_2_, personne0_.nom as nom4_3_2_, personne0_.prenom as prenom5_3_2_, personne0_.telephone as telephon6_3_2_, personne0_.login as login8_3_2_, personne0_.typePersonne as typePers1_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne personne0_ left outer join Adresse adresse1_ on personne0_.adresse=adresse1_.id left outer join Login login2_ on personne0_.login=login2_.id where personne0_.adresse=?
+2018-06-01 11:23:14,834 DEBUG main org.hibernate.SQL - select client0_.id as id2_3_2_, client0_.adresse as adresse7_3_2_, client0_.email as email3_3_2_, client0_.nom as nom4_3_2_, client0_.prenom as prenom5_3_2_, client0_.telephone as telephon6_3_2_, client0_.login as login8_3_2_, adresse1_.id as id1_0_0_, adresse1_.codePostal as codePost2_0_0_, adresse1_.nom as nom3_0_0_, adresse1_.numero as numero4_0_0_, adresse1_.pays as pays5_0_0_, adresse1_.ville as ville6_0_0_, login2_.id as id1_2_1_, login2_.password as password2_2_1_, login2_.username as username3_2_1_ from Personne client0_ left outer join Adresse adresse1_ on client0_.adresse=adresse1_.id left outer join Login login2_ on client0_.login=login2_.id where client0_.login=? and client0_.typePersonne='Client'

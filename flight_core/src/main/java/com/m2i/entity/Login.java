@@ -1,17 +1,18 @@
 package com.m2i.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Login {
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy="login")
 	private Client client;
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String username;
 	private String password;
