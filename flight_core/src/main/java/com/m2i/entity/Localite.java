@@ -20,7 +20,10 @@ public class Localite {
 		super();
 	}
 	
-	
+	public Localite(String ville, String aeroport) {
+		this.ville = ville;
+		this.aeroport = aeroport;
+	}
 	
 	
 	public Localite(Long id, String ville, String aeroport) {

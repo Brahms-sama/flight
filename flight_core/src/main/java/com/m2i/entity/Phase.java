@@ -52,8 +52,5 @@ public class Phase implements Serializable{
 		this.dateTime = dateTime;
 	}
 	
-	
-	
-	
 
 }

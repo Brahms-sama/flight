@@ -19,9 +19,13 @@ import javax.persistence.Table;
 @Table(name="Vol")
 @NamedQueries({
   @NamedQuery(name="Vol.findVolsByDeparture", 
-		  query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :ptown"),
+		query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :ptown"),
+  @NamedQuery(name="Vol.findVolsBetween", 
+  		query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :pdepart AND v.arrivee.localite.ville = :parrivee"),
+  @NamedQuery(name="Vol.findVolsByDepartureAndDate", 
+  		query="SELECT v FROM Vol v WHERE v.depart.localite.ville = :ptown AND STR_TO_DATE(v.depart.dateTime, '%Y-%m-%d') = :pdate"),
   @NamedQuery(name="Vol.findVolsByDateDepart", 
-          query="SELECT v FROM Vol v WHERE STR_TO_DATE(v.depart.dateTime, '%Y-%m-%d')  = :pdate")
+        query="SELECT v FROM Vol v WHERE STR_TO_DATE(v.depart.dateTime, '%Y-%m-%d')  = :pdate")
 })
 public class Vol {
 	@Id
