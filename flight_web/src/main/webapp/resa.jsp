@@ -28,7 +28,7 @@
 <script type="text/javascript" src="js/controllers.js"></script>
 
 </head>
-<body ng-controller="flightCtrl">
+<body ng-controller="resaCtrl">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -98,20 +98,20 @@
 				<div class="panel panel-primary">
 					<!-- Contenu avec la classe .panel-default -->
 					<div class="panel-heading text-center">
-						<h3>Vol n°{{vols[id].num}}</h3>
+						<h3>Vol n°{{vol.num}}</h3>
 					</div>
 
 					<!-- List group -->
 					<ul class="list-group">
-						<li class="list-group-item">Départ : <b>{{vols[id].depart.localite.ville}}
-								({{vols[id].depart.localite.aeroport}})</b><br>
-								Heure : {{vols[id].depart.dateTime}}
+						<li class="list-group-item">Départ : <b>{{vol.depart.localite.ville}}
+								({{vol.depart.localite.aeroport}})</b><br>
+								Heure : {{vol.depart.dateTime}}
 						</li>
-						<li class="list-group-item">Arrivée : <b>{{vols[id].arrivee.localite.ville}}
-								({{vols[id].arrivee.localite.aeroport}})</b><br>
-								Heure : {{vols[id].arrivee.dateTime}}
+						<li class="list-group-item">Arrivée : <b>{{vol.arrivee.localite.ville}}
+								({{vol.arrivee.localite.aeroport}})</b><br>
+								Heure : {{vol.arrivee.dateTime}}
 						</li>
-						<li class="list-group-item">Prix : <b>{{vols[id].prix}}€ TTC</b></li>
+						<li class="list-group-item">Prix : <b>{{vol.prix}}€ TTC</b></li>
 						<li class="list-group-item">
 							<button class="btn btn-primary btn-lg btn-block">Réserver</button>
 						</li>

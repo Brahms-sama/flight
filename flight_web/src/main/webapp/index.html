@@ -24,7 +24,7 @@
 <script type="text/javascript" src="js/controllers.js"></script>
 
 </head>
-<body ng-controller="flightCtrl">
+<body ng-controller="indexCtrl">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -86,7 +86,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-12">
 				<table
 					class="table table-striped table-hover table-bordered text-center">
 					<thead>
@@ -95,6 +95,7 @@
 							<th scope="col" colspan="2">Départ</th>
 							<th scope="col" colspan="2">Arrivée</th>
 							<th scope="col" rowspan="2">Prix (en € TTC)</th>
+							<th scope="col" rowspan="2">Réserver</th>
 						</tr>
 						<tr>
 							<td scope="col">Heure</td>
@@ -111,37 +112,14 @@
 							<td>{{vol.arrivee.dateTime}}</td>
 							<td>{{vol.arrivee.localite.ville}}</td>
 							<td>{{vol.prix}}</td>
-							<td><a href="/mvc/rest/vols/resa/{{vol.num}}"><button id="{{vol.num}}" class="btn btn-primary btn-sm">Réserver</button></a></td>
+							<td><a href="./mvc/rest/vols/resa/{{vol.num}}"><button id="{{vol.num}}" class="btn btn-primary btn-sm">Réserver</button></a></td>
 						</tr>
 
 					</tbody>
 				</table>
 				{{test}}/{{id}}
 			</div>
-			<div class="col-md-4">
-				<div class="panel panel-primary">
-					<!-- Contenu avec la classe .panel-default -->
-					<div class="panel-heading text-center">
-						<h3>Vol n°{{vols[id].num}}</h3>
-					</div>
-
-					<!-- List group -->
-					<ul class="list-group">
-						<li class="list-group-item">Départ : <b>{{vols[id].depart.localite.ville}}
-								({{vols[id].depart.localite.aeroport}})</b><br>
-								Heure : {{vols[id].depart.dateTime}}
-						</li>
-						<li class="list-group-item">Arrivée : <b>{{vols[id].arrivee.localite.ville}}
-								({{vols[id].arrivee.localite.aeroport}})</b><br>
-								Heure : {{vols[id].arrivee.dateTime}}
-						</li>
-						<li class="list-group-item">Prix : <b>{{vols[id].prix}}€ TTC</b></li>
-						<li class="list-group-item">
-							<a><button class="btn btn-primary btn-lg btn-block">Réserver</button></a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			
 
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 			<script

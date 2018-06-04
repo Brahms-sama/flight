@@ -42,7 +42,7 @@ public class FlightController {
 //			attributes.put("vol", serviceVols.rechercherVolParNumero(idVol));
 //			return new ModelAndView("resa", attributes);
 //		}
-//		
+		
 		@RequestMapping(value="/resa/{idVol}", method=RequestMethod.GET)
 		public Vol reservation( @PathVariable("idVol") Long idVol) {
 			return serviceVols.rechercherVolParNumero(idVol);
