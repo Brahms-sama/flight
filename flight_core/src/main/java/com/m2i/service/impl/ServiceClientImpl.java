@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.m2i.dao.IClientDao;
-import com.m2i.dao.ILoginDao;
 import com.m2i.entity.Client;
 import com.m2i.entity.Login;
 import com.m2i.service.IServiceClient;

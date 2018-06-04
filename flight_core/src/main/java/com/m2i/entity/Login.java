@@ -18,7 +18,6 @@ public class Login {
 	private String password;
 
 	public Login() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getUsername() {

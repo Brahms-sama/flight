@@ -19,7 +19,6 @@ public class Client extends Personne {
 	private Login login;
 
 	public Client() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Login getLogin() {

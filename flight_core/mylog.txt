@@ -1,0 +1,284 @@
+2018-06-03 16:19:27,974 ERROR main org.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4aedaf61] to prepare test instance [com.m2i.test.TestServiceVol@7be7e15]
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.m2i.test.TestServiceVol': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.m2i.service.IServiceVol' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:386)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.m2i.service.IServiceVol' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1493)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 28 more
+2018-06-03 16:19:27,979 ERROR main org.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4aedaf61] to prepare test instance [com.m2i.test.TestServiceVol@4248b963]
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.m2i.test.TestServiceVol': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.m2i.service.IServiceVol' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:386)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.m2i.service.IServiceVol' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1493)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 28 more
+2018-06-03 16:34:35,539 ERROR main org.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@55a609dd] to prepare test instance [com.m2i.test.TestServiceVol@4afd21c6]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'serviceVolImpl': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.m2i.dao.IVolDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 25 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.m2i.dao.IVolDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1493)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 43 more
+2018-06-03 16:36:27,044 INFO main com.m2i.test.TestServiceClient - Vol [num=1, prix=100.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 16:36:39,792 INFO main com.m2i.test.TestServiceClient - Vol [num=1, prix=100.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 16:36:39,855 INFO main com.m2i.test.TestServiceClient - Localite [id=1, ville=Paris, aeroport=CDG]
+2018-06-03 16:36:39,855 INFO main com.m2i.test.TestServiceClient - Localite [id=2, ville=Los Angeles, aeroport=LAX]
+2018-06-03 16:36:39,855 INFO main com.m2i.test.TestServiceClient - Localite [id=3, ville=Dakar, aeroport=DKR]
+2018-06-03 16:43:10,212 INFO main com.m2i.test.TestServiceClient - Vol [num=3, prix=300.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-03 00:00:00.0], arrivee=Phase [localite=Localite [id=3, ville=Dakar, aeroport=DKR], dateTime=2018-06-04 00:00:00.0]]
+2018-06-03 16:44:47,406 INFO main com.m2i.test.TestServiceClient - Vol [num=1, prix=100.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 16:44:47,503 INFO main com.m2i.test.TestServiceClient - Vol [num=3, prix=300.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-03 00:00:00.0], arrivee=Phase [localite=Localite [id=3, ville=Dakar, aeroport=DKR], dateTime=2018-06-04 00:00:00.0]]
+2018-06-03 16:44:47,530 INFO main com.m2i.test.TestServiceClient - Localite [id=1, ville=Paris, aeroport=CDG]
+2018-06-03 16:44:47,530 INFO main com.m2i.test.TestServiceClient - Localite [id=2, ville=Los Angeles, aeroport=LAX]
+2018-06-03 16:44:47,530 INFO main com.m2i.test.TestServiceClient - Localite [id=3, ville=Dakar, aeroport=DKR]
+2018-06-03 16:45:32,034 INFO main com.m2i.test.TestServiceClient - 	Client :Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0627233333], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0627233333, getClass()=class com.m2i.entity.Client, hashCode()=707719282]
+2018-06-03 16:45:32,118 INFO main com.m2i.test.TestServiceClient - 	Nouveau Client :Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=707719282]
+2018-06-03 16:45:32,154 INFO main com.m2i.test.TestServiceClient - Adresse [id=1, numero=5, nom=Picasso, codePostal=93370, ville=Montfermeil, pays=France]
+2018-06-03 16:45:32,215 INFO main com.m2i.test.TestServiceClient - Client [toString()=Personne [id=4, nom=Terrieur, prenom=Alain, email=alinterieur@mail.com, telephone=0654878956], getId()=4, getNom()=Terrieur, getPrenom()=Alain, getEmail()=alinterieur@mail.com, getTelephone()=0654878956, getClass()=class com.m2i.entity.Client, hashCode()=1593245055]
+2018-06-03 16:45:32,231 INFO main com.m2i.test.TestServiceClient - Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=1273689789]
+2018-06-03 16:45:32,232 INFO main com.m2i.test.TestServiceClient - Login [username=brahms, password=toto]
+2018-06-03 16:45:32,519 INFO main com.m2i.test.TestServiceClient - 	->Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=1706655559]
+2018-06-03 16:45:32,654 INFO main com.m2i.test.TestServiceClient - Vol [num=1, prix=100.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 16:45:32,672 INFO main com.m2i.test.TestServiceClient - Vol [num=3, prix=300.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-03 00:00:00.0], arrivee=Phase [localite=Localite [id=3, ville=Dakar, aeroport=DKR], dateTime=2018-06-04 00:00:00.0]]
+2018-06-03 16:45:32,711 INFO main com.m2i.test.TestServiceClient - Localite [id=1, ville=Paris, aeroport=CDG]
+2018-06-03 16:45:32,712 INFO main com.m2i.test.TestServiceClient - Localite [id=2, ville=Los Angeles, aeroport=LAX]
+2018-06-03 16:45:32,713 INFO main com.m2i.test.TestServiceClient - Localite [id=3, ville=Dakar, aeroport=DKR]
+2018-06-03 16:48:33,892 INFO main com.m2i.test.TestServiceClient - 	Client :Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0627233333], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0627233333, getClass()=class com.m2i.entity.Client, hashCode()=707719282]
+2018-06-03 16:48:33,966 INFO main com.m2i.test.TestServiceClient - 	Nouveau Client :Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=707719282]
+2018-06-03 16:48:33,986 INFO main com.m2i.test.TestServiceClient - Adresse [id=1, numero=5, nom=Picasso, codePostal=93370, ville=Montfermeil, pays=France]
+2018-06-03 16:48:34,045 INFO main com.m2i.test.TestServiceClient - Client [toString()=Personne [id=4, nom=Terrieur, prenom=Alain, email=alinterieur@mail.com, telephone=0654878956], getId()=4, getNom()=Terrieur, getPrenom()=Alain, getEmail()=alinterieur@mail.com, getTelephone()=0654878956, getClass()=class com.m2i.entity.Client, hashCode()=1593245055]
+2018-06-03 16:48:34,061 INFO main com.m2i.test.TestServiceClient - Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=1273689789]
+2018-06-03 16:48:34,062 INFO main com.m2i.test.TestServiceClient - Login [username=brahms, password=toto]
+2018-06-03 16:48:34,329 INFO main com.m2i.test.TestServiceClient - 	->Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=1706655559]
+2018-06-03 16:48:34,389 INFO main com.m2i.test.TestServiceClient - Vol [num=1, prix=100.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 16:48:34,420 INFO main com.m2i.test.TestServiceClient - Vol [num=3, prix=300.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-03 00:00:00.0], arrivee=Phase [localite=Localite [id=3, ville=Dakar, aeroport=DKR], dateTime=2018-06-04 00:00:00.0]]
+2018-06-03 16:48:34,449 INFO main com.m2i.test.TestServiceClient - Localite [id=1, ville=Paris, aeroport=CDG]
+2018-06-03 16:48:34,449 INFO main com.m2i.test.TestServiceClient - Localite [id=2, ville=Los Angeles, aeroport=LAX]
+2018-06-03 16:48:34,450 INFO main com.m2i.test.TestServiceClient - Localite [id=3, ville=Dakar, aeroport=DKR]
+2018-06-03 16:52:44,389 INFO main com.m2i.test.TestServiceClient - 	Client :Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0627233333], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0627233333, getClass()=class com.m2i.entity.Client, hashCode()=523331047]
+2018-06-03 16:52:44,466 INFO main com.m2i.test.TestServiceClient - 	Nouveau Client :Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=523331047]
+2018-06-03 16:52:44,484 INFO main com.m2i.test.TestServiceClient - Adresse [id=1, numero=5, nom=Picasso, codePostal=93370, ville=Montfermeil, pays=France]
+2018-06-03 16:52:44,579 INFO main com.m2i.test.TestServiceClient - Client [toString()=Personne [id=4, nom=Terrieur, prenom=Alain, email=alinterieur@mail.com, telephone=0654878956], getId()=4, getNom()=Terrieur, getPrenom()=Alain, getEmail()=alinterieur@mail.com, getTelephone()=0654878956, getClass()=class com.m2i.entity.Client, hashCode()=278536229]
+2018-06-03 16:52:44,598 INFO main com.m2i.test.TestServiceClient - Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=987015126]
+2018-06-03 16:52:44,598 INFO main com.m2i.test.TestServiceClient - Login [username=brahms, password=toto]
+2018-06-03 16:52:44,711 INFO main com.m2i.test.TestServiceClient - 	->Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=345516674]
+2018-06-03 17:19:16,278 ERROR main org.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1568159] to prepare test instance [com.m2i.test.TestServiceVol@4fcee388]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [beans.xml]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: myPersistenceUnitName] Unable to build Hibernate SessionFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 25 more
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: myPersistenceUnitName] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:963)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:889)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:149)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 40 more
+Caused by: org.hibernate.MappingException: Could not determine type for: com.m2i.entity.Client, at table: Reservation, for columns: [org.hibernate.mapping.Column(client)]
+	at org.hibernate.mapping.SimpleValue.getType(SimpleValue.java:486)
+	at org.hibernate.mapping.SimpleValue.isValid(SimpleValue.java:453)
+	at org.hibernate.mapping.Property.isValid(Property.java:226)
+	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:624)
+	at org.hibernate.mapping.RootClass.validate(RootClass.java:267)
+	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:347)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:466)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:886)
+	... 46 more
+2018-06-03 17:20:28,641 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.m2i.entity.Localite]
+2018-06-03 18:22:38,591 INFO main com.m2i.test.TestServiceClient - 150.0
+2018-06-03 18:23:53,416 INFO main com.m2i.test.TestServiceClient - 150.0
+2018-06-03 18:23:53,429 INFO main com.m2i.test.TestServiceClient - 100.0
+2018-06-03 18:34:02,702 INFO main com.m2i.test.TestServiceClient - Vol [num=1, prix=100.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 18:34:02,766 INFO main com.m2i.test.TestServiceClient - Vol [num=3, prix=300.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-03 00:00:00.0], arrivee=Phase [localite=Localite [id=3, ville=Dakar, aeroport=DKR], dateTime=2018-06-04 00:00:00.0]]
+2018-06-03 18:34:02,916 INFO main com.m2i.test.TestServiceClient - Vol [num=5, prix=300.0, depart=Phase [localite=Localite [id=5, ville=Oakland, aeroport=GSW], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=4, ville=Oakland, aeroport=GSW], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 18:34:02,953 INFO main com.m2i.test.TestServiceClient - Localite [id=1, ville=Paris, aeroport=CDG]
+2018-06-03 18:34:02,953 INFO main com.m2i.test.TestServiceClient - Localite [id=2, ville=Los Angeles, aeroport=LAX]
+2018-06-03 18:34:02,953 INFO main com.m2i.test.TestServiceClient - Localite [id=3, ville=Dakar, aeroport=DKR]
+2018-06-03 18:34:02,954 INFO main com.m2i.test.TestServiceClient - Localite [id=4, ville=Oakland, aeroport=GSW]
+2018-06-03 18:34:02,954 INFO main com.m2i.test.TestServiceClient - Localite [id=5, ville=Oakland, aeroport=GSW]
+2018-06-03 18:34:02,986 INFO main com.m2i.test.TestServiceClient - Vol [num=6, prix=600.0, depart=Phase [localite=Localite [id=3, ville=Dakar, aeroport=DKR], dateTime=2018-06-06 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-07 00:00:00.0]]
+2018-06-03 20:20:21,925 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESA1, dateResa=2018-06-03]
+2018-06-03 20:26:48,071 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESA1, dateResa=2018-06-03]
+2018-06-03 20:32:44,829 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESA1, dateResa=2018-06-03]
+2018-06-03 20:32:44,833 INFO main com.m2i.test.TestServiceResa - Resa [idResa=2, comment=RESA2, dateResa=2018-06-03]
+2018-06-03 20:56:05,033 INFO main com.m2i.test.TestServiceResa - RESERVATION1
+2018-06-03 20:57:27,120 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESA1, dateResa=2018-06-03]
+2018-06-03 20:59:17,543 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESA1, dateResa=2018-06-03]
+2018-06-03 21:00:05,800 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESA1, dateResa=2018-06-03]
+2018-06-03 21:00:32,464 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESA1, dateResa=2018-06-03]
+2018-06-03 21:00:32,466 INFO main com.m2i.test.TestServiceResa - Resa [idResa=2, comment=RESA2, dateResa=2018-06-03]
+2018-06-03 21:00:32,534 INFO main com.m2i.test.TestServiceResa - RESERVATION1
+2018-06-03 21:00:32,832 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESERVATION1, dateResa=2018-06-03]
+2018-06-03 21:01:11,108 INFO main com.m2i.test.TestServiceResa - Resa [idResa=1, comment=RESA1, dateResa=2018-06-03]
+2018-06-03 21:01:11,111 INFO main com.m2i.test.TestServiceResa - Resa [idResa=2, comment=RESA2, dateResa=2018-06-03]
+2018-06-03 21:01:11,171 INFO main com.m2i.test.TestServiceResa - RESERVATION1
+2018-06-03 21:01:11,489 INFO main com.m2i.test.TestServiceResa - Resa [idResa=2, comment=RESA2, dateResa=2018-06-03]
+2018-06-03 21:01:30,851 INFO main com.m2i.test.TestServiceClient - 	Client :Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0627233333], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0627233333, getClass()=class com.m2i.entity.Client, hashCode()=1127856876]
+2018-06-03 21:01:30,920 INFO main com.m2i.test.TestServiceClient - 	Nouveau Client :Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=1127856876]
+2018-06-03 21:01:30,937 INFO main com.m2i.test.TestServiceClient - Adresse [id=1, numero=5, nom=Picasso, codePostal=93370, ville=Montfermeil, pays=France]
+2018-06-03 21:01:30,995 INFO main com.m2i.test.TestServiceClient - Client [toString()=Personne [id=4, nom=Terrieur, prenom=Alain, email=alinterieur@mail.com, telephone=0654878956], getId()=4, getNom()=Terrieur, getPrenom()=Alain, getEmail()=alinterieur@mail.com, getTelephone()=0654878956, getClass()=class com.m2i.entity.Client, hashCode()=2075074394]
+2018-06-03 21:01:31,023 INFO main com.m2i.test.TestServiceClient - Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=1526250321]
+2018-06-03 21:01:31,024 INFO main com.m2i.test.TestServiceClient - Login [username=brahms, password=toto]
+2018-06-03 21:01:31,089 ERROR main org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`flight_db`.`resa_personne`, CONSTRAINT `FKg9ovlqsw1rocylq1nwniiplbt` FOREIGN KEY (`idPers`) REFERENCES `personne` (`id`))
+2018-06-03 21:01:31,092 ERROR main org.hibernate.internal.ExceptionMapperStandardImpl - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-06-03 21:01:31,124 INFO main com.m2i.test.TestServiceClient - 	->Client [toString()=Personne [id=1, nom=Gassama, prenom=Ibrahim, email=igassama@gmail.com, telephone=0143302504], getId()=1, getNom()=Gassama, getPrenom()=Ibrahim, getEmail()=igassama@gmail.com, getTelephone()=0143302504, getClass()=class com.m2i.entity.Client, hashCode()=159190022]
+2018-06-03 21:05:54,141 INFO main com.m2i.test.TestServiceVol - Vol [num=1, prix=100.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 21:05:54,189 INFO main com.m2i.test.TestServiceVol - Vol [num=3, prix=300.0, depart=Phase [localite=Localite [id=1, ville=Paris, aeroport=CDG], dateTime=2018-06-03 00:00:00.0], arrivee=Phase [localite=Localite [id=3, ville=Dakar, aeroport=DKR], dateTime=2018-06-04 00:00:00.0]]
+2018-06-03 21:05:54,252 INFO main com.m2i.test.TestServiceVol - Vol [num=5, prix=300.0, depart=Phase [localite=Localite [id=5, ville=Oakland, aeroport=GSW], dateTime=2018-06-01 00:00:00.0], arrivee=Phase [localite=Localite [id=4, ville=Oakland, aeroport=GSW], dateTime=2018-06-02 00:00:00.0]]
+2018-06-03 21:05:54,283 INFO main com.m2i.test.TestServiceVol - Localite [id=1, ville=Paris, aeroport=CDG]
+2018-06-03 21:05:54,284 INFO main com.m2i.test.TestServiceVol - Localite [id=2, ville=Los Angeles, aeroport=LAX]
+2018-06-03 21:05:54,284 INFO main com.m2i.test.TestServiceVol - Localite [id=3, ville=Dakar, aeroport=DKR]
+2018-06-03 21:05:54,285 INFO main com.m2i.test.TestServiceVol - Localite [id=4, ville=Oakland, aeroport=GSW]
+2018-06-03 21:05:54,285 INFO main com.m2i.test.TestServiceVol - Localite [id=5, ville=Oakland, aeroport=GSW]
+2018-06-03 21:05:54,323 INFO main com.m2i.test.TestServiceVol - Vol [num=6, prix=600.0, depart=Phase [localite=Localite [id=3, ville=Dakar, aeroport=DKR], dateTime=2018-06-06 00:00:00.0], arrivee=Phase [localite=Localite [id=2, ville=Los Angeles, aeroport=LAX], dateTime=2018-06-07 00:00:00.0]]

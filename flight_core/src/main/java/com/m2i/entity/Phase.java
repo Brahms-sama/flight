@@ -3,6 +3,7 @@ package com.m2i.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
@@ -20,7 +21,10 @@ public class Phase implements Serializable{
 		return "Phase [localite=" + localite + ", dateTime=" + dateTime + "]";
 	}
 	
-	@ManyToOne
+	@ManyToOne(cascade= {CascadeType.PERSIST,
+			CascadeType.MERGE,
+			CascadeType.DETACH,
+			CascadeType.REFRESH})
 	@JoinColumn(name="refLocalite")//sera redefini refLocDepart ou refLocArrivee
 	private Localite localite;
 	

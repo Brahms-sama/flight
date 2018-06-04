@@ -32,7 +32,6 @@ public class Personne {
 	private Adresse adresse;
 
 	public Personne() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getId() {

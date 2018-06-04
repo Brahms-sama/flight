@@ -15,5 +15,6 @@ public interface IVolDao {
 	List<Vol> findVolsBetween(Localite depart, Localite arrivee);
 	List<Localite> findAllLocalites();
 	List<Vol> findVolsByDeparture(Localite ville, Date date);
+	public List<Vol> findAllVols();
 
 }

@@ -3,13 +3,21 @@ package com.m2i.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.m2i.dao.IVolDao;
 import com.m2i.entity.Localite;
 import com.m2i.entity.Vol;
 import com.m2i.service.IServiceVol;
 
+@Service
+@Transactional
 public class ServiceVolImpl implements IServiceVol {
 	
+	@Autowired
 	IVolDao dao;
 
 	@Override
@@ -45,6 +53,11 @@ public class ServiceVolImpl implements IServiceVol {
 	@Override
 	public void supprimerVol(Long numeroVol) {
 		dao.deleteVol(numeroVol);
+	}
+
+	@Override
+	public List<Vol> rechercherTousLesVols() {
+		return dao.findAllVols();
 	}
 
 }

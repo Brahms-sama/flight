@@ -63,7 +63,8 @@ public class TestServiceClient {
 	public void testSupprimerClient() {
 		Client client = service.rechercherClientParId(3);
 		service.supprimerInfosClient(client);
-		Assert.assertEquals(service.listeClients().size(),2);
+		Client newClient = service.rechercherClientParId(3);
+		Assert.assertTrue(newClient == null);
 	}
 	
 	@Test

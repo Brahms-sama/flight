@@ -4,13 +4,20 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Component;
 
 import com.m2i.dao.IVolDao;
 import com.m2i.entity.Localite;
 import com.m2i.entity.Vol;
 
+@Transactional
+@Component
 public class VolDaoImpl implements IVolDao {
 
+	@PersistenceContext(unitName="myPersistenceUnitName")
 	private EntityManager entityManager;
 	
 	@Override
@@ -19,18 +26,18 @@ public class VolDaoImpl implements IVolDao {
 	}
 	
 	@Override
-	public List<Vol> findVolsByDeparture(Localite ville, Date date){
+	public List<Vol> findVolsByDeparture(Localite localite, Date date){
 		return entityManager.createNamedQuery("Vol.findVolsByDepartureAndDate",Vol.class)
-				.setParameter("ptown", ville)
+				.setParameter("ptown", localite.getVille())
 				.setParameter("pdate", date)
 				.getResultList();
 	}
 	
 	@Override
 	public List<Vol> findVolsBetween(Localite depart, Localite arrivee){
-		return entityManager.createNamedQuery("Vol.find ",Vol.class)
-				.setParameter("pdepart", depart)
-				.setParameter("parrivee", arrivee)
+		return entityManager.createNamedQuery("Vol.findVolsBetween",Vol.class)
+				.setParameter("pdepart", depart.getVille())
+				.setParameter("parrivee", arrivee.getVille())
 				.getResultList();
 	}
 	
@@ -54,6 +61,11 @@ public class VolDaoImpl implements IVolDao {
 	public List<Localite> findAllLocalites(){
 		return entityManager.createQuery("SELECT l FROM Localite l", Localite.class)
 				.getResultList();
+	}
+
+	@Override
+	public List<Vol> findAllVols() {
+		return entityManager.createQuery("SELECT v FROM Vol v",Vol.class).getResultList();
 	}
 
 	
