@@ -15,33 +15,36 @@ import com.m2i.entity.Vol;
 import com.m2i.service.IServiceReservation;
 import com.m2i.service.IServiceVol;
 
-
 @RestController
 @RequestMapping(value="/rest/vols" , 
                 headers="Accept=application/json")
 public class FlightController {
 
 	Map<String, Object> attributes = new HashMap<>();
-	//business service vers lequel d�l�guer les traitements :
+	//business service vers lequel déléguer les traitements :
 		@Autowired
 		private IServiceVol serviceVols; 
 		
 		@Autowired
 		private IServiceReservation serviceResa;
 		
-		//sera appel� en HTTP / GET avec l' URL suivante:
+		//sera appelé en HTTP / GET avec l' URL suivante:
 		// http://localhost:8080/flight_Web/mvc/rest/vols/all
 		@RequestMapping(value="/all" , method=RequestMethod.GET)
 		List<Vol> getVols(  ){
 			return serviceVols.rechercherTousLesVols();
 			//NB: le resultat java de type List<Vol>
-			//sera automatiquement transform� au format JSON
+			//sera automatiquement transformé au format JSON
 		}
 		
+//		@RequestMapping(value="/resa/{idVol}", method=RequestMethod.GET)
+//		public ModelAndView reservation( @PathVariable("idVol") Long idVol) {
+//			attributes.put("vol", serviceVols.rechercherVolParNumero(idVol));
+//			return new ModelAndView("resa", attributes);
+//		}
+//		
 		@RequestMapping(value="/resa/{idVol}", method=RequestMethod.GET)
-		public ModelAndView reservation( @PathVariable("idVol") Long idVol) {
-			
-			attributes.put("vol", serviceVols.rechercherVolParNumero(idVol));
-			return new ModelAndView("resa", attributes);
-		}	
+		public Vol reservation( @PathVariable("idVol") Long idVol) {
+			return serviceVols.rechercherVolParNumero(idVol);
+		}
 }

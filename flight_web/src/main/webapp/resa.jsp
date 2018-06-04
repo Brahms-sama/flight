@@ -91,29 +91,29 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				${vol }
+				-${vol }-
 				{{test}}/{{id}}
 			</div>
 			<div class="col-md-4">
 				<div class="panel panel-primary">
 					<!-- Contenu avec la classe .panel-default -->
 					<div class="panel-heading text-center">
-						<h3>Vol nÂ°{{vols[id].num}}</h3>
+						<h3>Vol n°{{vols[id].num}}</h3>
 					</div>
 
 					<!-- List group -->
 					<ul class="list-group">
-						<li class="list-group-item">DÃ©part : <b>{{vols[id].depart.localite.ville}}
+						<li class="list-group-item">Départ : <b>{{vols[id].depart.localite.ville}}
 								({{vols[id].depart.localite.aeroport}})</b><br>
 								Heure : {{vols[id].depart.dateTime}}
 						</li>
-						<li class="list-group-item">ArrivÃ©e : <b>{{vols[id].arrivee.localite.ville}}
+						<li class="list-group-item">Arrivée : <b>{{vols[id].arrivee.localite.ville}}
 								({{vols[id].arrivee.localite.aeroport}})</b><br>
 								Heure : {{vols[id].arrivee.dateTime}}
 						</li>
-						<li class="list-group-item">Prix : <b>{{vols[id].prix}}â¬ TTC</b></li>
+						<li class="list-group-item">Prix : <b>{{vols[id].prix}}€ TTC</b></li>
 						<li class="list-group-item">
-							<button class="btn btn-primary btn-lg btn-block">RÃ©server</button>
+							<button class="btn btn-primary btn-lg btn-block">Réserver</button>
 						</li>
 					</ul>
 				</div>
