@@ -8,6 +8,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @DiscriminatorValue("Client")
 @NamedQueries({ @NamedQuery(name = "Client.findClientById", query = "SELECT cli FROM Client cli WHERE cli.id = :id"),
@@ -20,7 +22,8 @@ public class Client extends Personne {
 
 	public Client() {
 	}
-
+	
+	@JsonIgnore
 	public Login getLogin() {
 		return login;
 	}

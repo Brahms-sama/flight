@@ -102,4 +102,12 @@ public class TestServiceClient {
 		Assert.assertEquals(client.getPrenom(), "Ibrahim");
 	}
 	
+	@Test
+	public void testAllClients() {
+		for(Client client : service.listeClients()) {
+			logger.info("\t"+client);
+		}
+		Assert.assertTrue(service.listeClients().size() == 3);
+	}
+	
 }

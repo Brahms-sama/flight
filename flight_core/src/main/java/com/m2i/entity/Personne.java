@@ -13,6 +13,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "typePersonne", discriminatorType = DiscriminatorType.STRING)
@@ -29,6 +31,7 @@ public class Personne {
 
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="adresse")
+	@JsonIgnore
 	private Adresse adresse;
 
 	public Personne() {
