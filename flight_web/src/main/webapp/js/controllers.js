@@ -1,20 +1,27 @@
 var app = angular.module('flight', ['ngRoute']);
+app.value('status', false);
 var base_url = "http://localhost:8080/flight_web/";
 
+app.factory('AuthService', [] , function($scope) {
+	 $scope.status = false;
+  return {
+      status :  $scope.status
+  };
+});
+
 app.config(function ($routeProvider) {
-	'use strict';
     $routeProvider
         .when("/", {
             templateUrl: "views/vols.html",
-            controller : 'indexCtrl'
+            controller : 'volsCtrl'
         })
-        .when("/#/test/", {
-            templateUrl: "views/vols.html",
-            controller : 'indexCtrl'
+        .when("/connexion/", {
+            templateUrl: "views/connexion.html",
+            controller : 'loginCtrl'
         })
         .when("/resa/:idVol", {
-            templateUrl: "mvc/views/resa.html",
-            controller : 'indexCtrl'
+            templateUrl: "views/resa.html",
+            controller : 'resaCtrl'
         })
         .when("/clients", {
             templateUrl: "views/clients.jsp",
@@ -27,16 +34,26 @@ app.config(function ($routeProvider) {
  * */
 app.controller("indexCtrl", function ($scope, $http, $routeParams) {
     $scope.test = "Ca marche !!";
-    $scope.id = 0;
+    $scope.appName = "FLIGHT";
+
+    
+});
+
+/*
+ *'VOLS' PAGE CONTROLLER
+ * */
+app.controller("volsCtrl", function ($scope, $http, $routeParams) {
+    $scope.test = "Ca marche !!";
+    $scope.appName = "FLIGHT_VOLS"
+    $scope.connected = false;
 
     $http.get("http://localhost:8080/flight_web/mvc/rest/vols").
     then(function (response) {
         $scope.vols = response.data;
     });
+   
     
-    $scope.example = function () {
-    	$scope.popo =  $scope.popo.toUpperCase();
-    }
+    
 });
 
 
@@ -49,7 +66,29 @@ app.controller("resaCtrl", function ($scope, $http, $routeParams) {
 
     $http.get("http://localhost:8080/flight_web/mvc/rest/resa/"+$id).
     then(function (response) {
-        $scope.vols = response.data;
+        $scope.vol = response.data;
     });
+
+});
+
+/*
+ *'LOGIN' PAGE CONTROLLER
+ * */
+app.controller("loginCtrl", function ($scope, $http, $routeParams, AuthService) {
+    $scope.test = "Ca marche !!";
+
+    $scope.check = function (login) {
+    	var body = JSON.stringify({username:login.username, password:login.password})
+    	$http.post("http://localhost:8080/flight_web/mvc/rest/login/", body).
+        then(function (response) {
+            $scope.client = response.data;
+            AuthService.status = true;
+        })
+//        .catch(function (response) {
+//        	$scope.connected = false;
+//        });
+    }
+    
+    
 
 });
