@@ -41,29 +41,44 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{base_url}}#/">--{{appName}}--</a>
+				<a class="navbar-brand" href="{{base_url}}#/">--{{appName}}--{{connected}}</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="{{base_url}}#/">Accueil<span class="sr-only">(current)</span></a></li>
+					<li class="active"><a href="{{base_url}}#/">Accueil<span
+							class="sr-only">(current)</span></a></li>
 					<li><a href="#vols">Liste des vols</a></li>
 				</ul>
-				
+
 				<ul class="nav navbar-nav navbar-right">
-				
-					<li ng-hide="Auth.status"><a href="#connexion">Se connecter</a></li>
-					<li ng-show="Auth.status" class="dropdown"><a href="#" class="dropdown-toggle"
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Dropdown <span class="caret"></span></a>
+						aria-expanded="false">Mon Compte<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
+							<li ng-hide="connected">
+								<ul class="list-group">
+									<li class="list-group-item"><label for="username">Nom
+											d'utilisateur : </label> <input type="text" ng-model="login.username">
+									</li>
+									<li class="list-group-item"><label for="username">Mot
+											de passe : </label> <input type="password" ng-model="login.password">
+									</li>
+									<li class="list-group-item text-center">
+										<button class="btn btn-primary" ng-click="check(login)">Se
+											connecter</button><br>
+										<button class="btn btn-info"
+											ng-click="oublie='Dommage'">Mot de passe oublie ?</button>
+										<h3>{{oublie}}</h3>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#client/{{client.id}}">Mes informations personnelles</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
+							<li><a href="#deconnexion">Se déconnecter</a></li>
 						</ul></li>
 				</ul>
 			</div>

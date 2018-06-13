@@ -52,6 +52,11 @@ public class FlightRestController {
 		return serviceClient.listeClients();
 	}
 	
+	@RequestMapping(value = "/client/{id}", method = RequestMethod.GET)
+	public Client getClient(@PathVariable("id") Integer id) {
+		return serviceClient.rechercherClientParId(id);
+	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	ResponseEntity<Client> postDevise(@RequestBody Login login) {
 		try {
