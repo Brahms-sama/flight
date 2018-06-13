@@ -1,0 +1,31 @@
+<div class="col-md-6" ng-controller="loginCtrl">
+	{{test}}
+	<div class="panel panel-primary">
+		<!-- Contenu avec la classe .panel-default -->
+
+		<div class="panel-heading text-center">
+			<h3>CONNEXION</h3>
+		</div>
+
+		<!-- List group -->
+		<ul class="list-group">
+			<li class="list-group-item"><label for="username">Nom
+					d'utilisateur : </label> <input type="text" ng-model="login.username">
+			</li>
+			<li class="list-group-item"><label for="username">Mot de
+					passe : </label> <input type="password" ng-model="login.password">
+			</li>
+			<li class="list-group-item text-center">
+				<button class="btn btn-primary btn-lg" ng-click="check(login)">Se
+					connecter</button>
+				<button class="btn btn-info btn-lg" ng-click="oublie='Dommage'">Mot de passe oublie ?</button>
+				<h3>{{oublie}}</h3>
+			</li>
+		</ul>
+	</div>
+	login : {{login}}
+	<br>	
+	client : {{client}}
+	<br>	
+	connected : {{connected}}	
+</div>
