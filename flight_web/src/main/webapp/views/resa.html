@@ -1,11 +1,26 @@
-<div class="col-md-8" ng-controller="resaCtrl">
-    -{{vol }}- {{test}}/{{id}}
-</div>
-<div class="col-md-4">
+
+<div class="col-md-4" ng-controller="resaCtrl">
     <div class="panel panel-primary">
         <!-- Contenu avec la classe .panel-default -->
         <div class="panel-heading text-center">
-            <h3>Vol n°{{vol.num}}</h3>
+            <h3>Informations Client</h3>
+        </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+            <li class="list-group-item">Nom :<b>{{client.nom}}</b></li>
+            <li class="list-group-item">Prenom : <b>{{client.prenom}}</b></li>
+            <li class="list-group-item">Email : <b>{{client.email}}</b></li>
+            <li class="list-group-item">Telephone : <b>{{client.telephone}}</b></li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-md-4" ng-controller="resaCtrl">
+    <div class="panel panel-primary">
+        <!-- Contenu avec la classe .panel-default -->
+        <div class="panel-heading text-center">
+            <h3>Vol numero {{vol.num}}</h3>
         </div>
 
         <!-- List group -->
@@ -17,9 +32,25 @@
 								({{vol.arrivee.localite.aeroport}})</b><br> Heure : {{vol.arrivee.dateTime}}
             </li>
             <li class="list-group-item">Prix : <b>{{vol.prix}}€ TTC</b></li>
-            <li class="list-group-item">
-                <button class="btn btn-primary btn-lg btn-block"etéd(vol.i/button>
-            </li>
+            
         </ul>
     </div>
 </div>
+
+<div class="col-md-4" ng-controller="resaCtrl">
+    <div class="panel panel-primary">
+        <!-- Contenu avec la classe .panel-default -->
+        <div class="panel-heading text-center">
+            <h3>Liste des passagers</h3>
+        </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+            <li class="list-group-item">Passager 1</li>
+            <li class="list-group-item">Passager 2</li>
+            <li class="list-group-item">...</li>
+        </ul>
+    </div>
+</div>
+
+                <button class="btn btn-primary btn-lg btn-block" ng-click="reserver(vol,client)">Reserver</button>

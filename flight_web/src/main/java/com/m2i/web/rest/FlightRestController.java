@@ -42,7 +42,7 @@ public class FlightRestController {
 	}
 
 
-	@RequestMapping(value = "/resa/{idVol}", method = RequestMethod.GET)
+	@RequestMapping(value = "/vol/{idVol}", method = RequestMethod.GET)
 	public Vol reservation(@PathVariable("idVol") Long idVol) {
 		return serviceVols.rechercherVolParNumero(idVol);
 	}
@@ -72,5 +72,34 @@ public class FlightRestController {
 			return new ResponseEntity<Client>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@RequestMapping(value = "/client", method = RequestMethod.PUT)
+	ResponseEntity<Client> postClient(@RequestBody Client client) {
+		try {
+			serviceClient.modifierCoordClient(client);;
+			return new ResponseEntity<Client>(client, HttpStatus.OK);
+			// C'est souvent intéressant de renvoyer l'objet insérer
+			// dans le cas d'une clé primaire auto-increment
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return new ResponseEntity<Client>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@RequestMapping(value = "/resa", method = RequestMethod.PUT)
+	ResponseEntity<Client> postResa(@RequestBody Client client) {
+		try {
+//			serviceResa.nouvelleResa(numClient, numVol, passagers);
+			serviceClient.modifierCoordClient(client);;
+			return new ResponseEntity<Client>(client, HttpStatus.OK);
+			// C'est souvent intéressant de renvoyer l'objet insérer
+			// dans le cas d'une clé primaire auto-increment
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return new ResponseEntity<Client>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	
 
 }

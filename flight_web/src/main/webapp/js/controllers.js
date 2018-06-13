@@ -6,13 +6,10 @@ app.config(function($routeProvider) {
 	$routeProvider.when("/", {
 		templateUrl : "views/vols.html",
 		controller : 'volsCtrl'
-	}).when("/connexion/", {
-		templateUrl : "views/connexion.html",
-		controller : 'loginCtrl'
-	}).when("/resa/:idVol", {
+	}).when("/resa/:idClient/:idVol", {
 		templateUrl : "views/resa.html",
 		controller : 'resaCtrl'
-	}).when("/client/{id}", {
+	}).when("/client/:id", {
 		templateUrl : "views/client.html",
 		controller : 'clientCtrl'
 	});
@@ -61,11 +58,17 @@ app.controller("volsCtrl", function($scope, $http, $routeParams) {
  */
 app.controller("resaCtrl", function($scope, $http, $routeParams) {
 	$scope.test = "Ca marche !!";
-	$id = $routeParams["idVol"];
+	$idVol = $routeParams["idVol"];
+	$idClient = $routeParams["idClient"];
 
-	$http.get("http://localhost:8080/flight_web/mvc/rest/resa/" + $id).then(
+	$http.get("http://localhost:8080/flight_web/mvc/rest/vol/" + $idVol).then(
 			function(response) {
 				$scope.vol = response.data;
+			});
+	
+	$http.get("http://localhost:8080/flight_web/mvc/rest/client/" + $idClient).then(
+			function(response) {
+				$scope.client = response.data;
 			});
 
 });
@@ -101,9 +104,25 @@ app.controller("clientCtrl", function($scope, $http, $routeParams) {
 	$scope.test = "Ca marche !!";
 	$id = $routeParams["id"];
 
-	$http.get("http://localhost:8080/flight_web/mvc/rest/client/").then(
+	$http.get("http://localhost:8080/flight_web/mvc/rest/client/"+$id).then(
 			function(response) {
 				$scope.client = response.data;
 			})
+			
+	$scope.edit = function (client) {
+		var body = JSON.stringify({
+			id : client.id,
+			nom : client.nom,
+			prenom : client.prenom,
+			email : client.email,
+			telephone : client.telephone,
+			login : { username : client.login.username,
+						password : client.login.password}
+		})
+		$http.put("http://localhost:8080/flight_web/mvc/rest/client/", body).then(
+				function(response) {
+					$scope.client = response.data;
+				})
+	}
 
 });

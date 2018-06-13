@@ -1,13 +1,13 @@
 <div class="col-md-12" ng-controller="volsCtrl">
-**{{appName}}**{{status}}
+    {{test}}
     <table class="table table-striped table-hover table-bordered text-center">
         <thead>
             <tr>
                 <th scope="col" rowspan="2">#</th>
-                <th scope="col" colspan="2">Départ</th>
-                <th scope="col" colspan="2">Arrivée</th>
-                <th scope="col" rowspan="2">Prix (en € TTC)</th>
-                <th scope="col" rowspan="2">Réserver</th>
+                <th scope="col" colspan="2">Depart</th>
+                <th scope="col" colspan="2">Arrivee</th>
+                <th scope="col" rowspan="2">Prix (en euro TTC)</th>
+                <th scope="col" rowspan="2">Reserver</th>
             </tr>
             <tr>
                 <td scope="col">Heure</td>
@@ -24,14 +24,14 @@
                 <td>{{vol.arrivee.dateTime}}</td>
                 <td>{{vol.arrivee.localite.ville}}</td>
                 <td>{{vol.prix}}</td>
-                <td><a href="#resa/{{vol.num}}"><button id="{{vol.num}} " class="btn btn-primary btn-sm ">Réserver</button></a></td>
+                <td><a href="#resa/{{client.id}}/{{vol.num}}"><button id="{{vol.num}} " 
+                	class="btn btn-primary btn-sm" ng-disabled="!connected"
+                	data-toggle="tooltip" data-placement="right" title="Il faut se connecter !">Reserver</button></a></td>
             </tr>
 
         </tbody>
     </table>
-    {{test}}<br>
-    <a href="./test">Lien</a>
     
 </div>
 
-<script type="text/javascript" src="js/date.js"></script>
+<!-- <script type="text/javascript" src="js/date.js"></script> -->

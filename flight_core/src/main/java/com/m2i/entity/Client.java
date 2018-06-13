@@ -23,7 +23,6 @@ public class Client extends Personne {
 	public Client() {
 	}
 	
-	@JsonIgnore
 	public Login getLogin() {
 		return login;
 	}
